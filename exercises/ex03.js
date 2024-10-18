@@ -2,9 +2,26 @@
 // Make sure to implement the Stack principle (LIFO)
 
 const Stack = require('../lib/Stack');
-
 function insertAfterTarget(target, newElement) {
-  // your code here
+    const tempStack = new Stack();
+    let found = false;
+
+    while (!stack.isEmpty()) {
+        const element = stack.pop();
+        if (element === target) {
+            tempStack.push(newElement);
+            found = true;
+        }
+        tempStack.push(element); 
+    }
+
+    while (!tempStack.isEmpty()) {
+        stack.push(tempStack.pop());
+    }
+
+    if (!found) {
+        console.log("Target element not found");
+    }
 }
 
 const stack = new Stack();
@@ -14,4 +31,4 @@ stack.push("C");
 stack.push("D");
 
 insertAfterTarget("B", "X");
-stack.printStack(); // A B X C D
+console.log(stack.printStack()); // Output should be: A B X C D
